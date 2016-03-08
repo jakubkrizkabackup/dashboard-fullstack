@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dashboardFullstackApp', [
+var app = angular.module('dashboardFullstackApp', [
   'dashboardFullstackApp.auth',
   'dashboardFullstackApp.admin',
   'dashboardFullstackApp.constants',
@@ -10,7 +10,8 @@ angular.module('dashboardFullstackApp', [
   'ngRoute',
   'btford.socket-io',
   'ui.bootstrap',
-  'validation.match'
+  'validation.match',
+  'angularMoment'
 ])
   .config(function($routeProvider, $locationProvider) {
     $routeProvider
@@ -20,3 +21,7 @@ angular.module('dashboardFullstackApp', [
 
     $locationProvider.html5Mode(true);
   });
+
+app.run(function(amMoment) {
+  amMoment.changeLocale('cs');
+});

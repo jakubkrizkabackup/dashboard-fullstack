@@ -8,6 +8,11 @@ class MainController {
     this.$http = $http;
     this.awesomeThings = [];
 
+    $scope.message = {
+      text: 'hello world!',
+      time: new Date()
+    };
+
     $http.get('/api/things').then(response => {
       this.awesomeThings = response.data;
       socket.syncUpdates('thing', this.awesomeThings);
